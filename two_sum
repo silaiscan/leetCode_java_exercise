@@ -1,0 +1,32 @@
+//bu örnekte amaç bir hedef sayı belirleyip elimizdeki diziden iki sayıyı toplayarak o sayıya ulaşmak
+//zaman karmaşıklığı O(n'2) olan çözüm
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] indexler=new int[2];//sayıların indeksini bu diziye atacağız ve bu diziyi döndüreceğiz
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){//i den 1 fazla olarak başlatıyorum ki kendinden sonrakilerle toplasın
+              if(nums[i]+nums[j]==target){
+                indexler[0]=i;//indeks sayılarını ekliyorum indexler dizisine
+                indexler[1]=j;
+              }
+            }
+        }
+        return indexler;
+    }
+}
+//zaman karmaşıklığı O(n) olan çözüm daha hızlı ama daha fazla bellek kullanıyor
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();// önce yeni bir hasmap oluşturdum hashmap anahtar ve değer olarak tutuyor buradada sayı ve indeksini aynı anda tutturacağız
+
+        for (int i = 0; i < nums.length; i++) {
+            int eksik = target - nums[i]; //hedeften şuan baktığımız sayıyı çıkarıyoruz ve hedefe ulaşmamız için kaça ihtiyuacımız olduğuna bakıyoruz
+            if (map.containsKey(eksik)) { //eğer hashmap de eksik sayi bulunuyorsa
+              return new int[]{map.get(eksik), i}; //map.get(eksik) ile eksik sayinin indeksini ,i ile şuanda elimzdeki sayının indeksini alıyoruz ve int[] ile dizi oluışturup içine ekliyoruz
+            //buradaki return oluşturulan diziyi metodun sonucuna gönderiyor
+}
+            map.put(nums[i], i);//eğer eksik sayi map de yoksa elimizdeki sayıyı indeksiyle beraber hashmape ekliyuoruz
+        }
+        return new int[]{};//ardından indeksleri eklediğimiz diziyi döndürüyoruz
+    }
+}
