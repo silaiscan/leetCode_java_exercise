@@ -1,0 +1,14 @@
+class Solution {
+    public boolean isPalindrome(int x) { //integera stringe çevirip tersten aynı mı diye baktık hiç basamaklara bölmemize gerek kalmadı
+        String y=Integer.toString(x);
+        String reversed=new StringBuilder(y).reverse().toString();
+        if(y.equals(reversed)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+}
+
