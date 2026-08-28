@@ -1,0 +1,20 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        ArrayList<String> output = new ArrayList<>();
+        HashMap<String,Integer> map=new HashMap<>();
+        for (int i = 0; i < strs[0].length(); i++) {
+
+    char karakter = strs[0].charAt(i);
+
+    for (int j = 1; j < strs.length; j++) {
+
+        if (i >= strs[j].length() || strs[j].charAt(i) != karakter) {
+            return strs[0].substring(0, i);
+        }
+    }
+}
+
+return strs[0];
+
+    }
+}
