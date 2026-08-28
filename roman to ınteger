@@ -1,0 +1,27 @@
+class Solution {
+    public int romanToInt(String s) {
+        int sayi=0;
+        String[] yeni=s.split(""); //önce stringin her karakterini ayrı ayrı diziye ekledik
+      
+      HashMap<String,Integer> map=new HashMap<>();
+
+      map.put("I",1); //karakterleri ve değerleri hashmapin içine ekledik
+      map.put("V",5);  
+      map.put("X",10);
+      map.put("L",50);
+      map.put("C",100);
+      map.put("D",500);
+      map.put("M",1000);
+//input MCMXCIV olsun
+      for(int i=yeni.length-1;i>=0;i--){ //bixe verilen romen rakamının sonundan başlamak daha mantıklı oludğu sondan başa gittik bu yüzden en yüksek numaralı indeksten başlıyor i 
+        if(i<yeni.length-1 && map.get(yeni[i])<map.get(yeni[i+1])){ //baştaki kontrol ilk elemana hiç girmsin diye çümkü onun indeksi  ve i+1 olacağından diğeri 7 olur ki öyle bir index yok
+            sayi-=map.get(yeni[i]); //eğer üzerinde çalıştığım sayı kendinden sonrakinden küçükse ana sayıdan(output) üzerinde çalıştığım sayıyı çıkarıyorum şöyle düşün IV ya mesela 1 beşten küçük bu yüzden ana sayı 5 ti başta bir çıkardım 4 oldu
+        }
+        else {
+            sayi+=map.get(yeni[i]);//eğer büyük ya da eşitse üzerinde çalıştığım sayıyı ana sayıya ekliyorum
+          }
+      }
+       
+          return sayi;
+}
+}
