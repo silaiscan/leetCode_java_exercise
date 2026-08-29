@@ -1,0 +1,15 @@
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int[] yeni=new int[nums1.length+nums2.length];
+        double output;
+    System.arraycopy(nums1,0,yeni,0,nums1.length);
+    System.arraycopy(nums2,0,yeni,nums1.length,nums2.length); 
+    if (yeni.length %2 !=0){
+        output=yeni[(yeni.length+1)/2];
+    }
+    else{
+     output=(yeni[yeni.length/2]+yeni[(yeni.length/2)-1])/2.0;//burada 2 ye değil 2.0 a bölüceksin çünkü 2 ye bölünce tam sayı bölmesi yapıyor ama burada sonuç doubleda çıkabilir
+    } 
+    return output;
+    }
+}
