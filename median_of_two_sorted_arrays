@@ -3,7 +3,7 @@ class Solution {
         int[] yeni=new int[nums1.length+nums2.length];
         double output;
     System.arraycopy(nums1,0,yeni,0,nums1.length);
-    System.arraycopy(nums2,0,yeni,nums1.length,nums2.length); 
+    System.arraycopy(nums2,0,yeni,nums1.length,nums2.length); //buradada kaynak,kaynak başlangıç index değeri,hedef,hedef başlangıç indeks değeri,kaç eleman aktarılacak onları yazmış oluyorsun
     if (yeni.length %2 !=0){
         output=yeni[(yeni.length+1)/2];
     }
