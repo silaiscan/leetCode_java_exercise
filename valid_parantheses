@@ -1,0 +1,46 @@
+class Solution{
+  public boolean isValid(String s) {
+    char[] stack =new char[s.length()];
+    int top = -1;
+
+    for(int i=0;i<s.length();i++){
+      char karakter =s.charAt(i);
+      //açılan parantezse stacke ekle (burada stack olarak kullandığın şey char dizisi)
+      if (karakter =='(' || karakter =='[' || karakter == '{' ) {
+        top ++;
+        stack[top]=karakter;
+      }
+//kapanan parantez ise
+      else{
+//stack boşsa eşleşecek parantez yok
+        if(top == -1){
+          return false;
+        }
+          char acilan =stack[top];//açmaya başlayacağız stacki bu yüzden stackin başındakini attık değişkene
+        top--;//stackten çıkar
+
+        //parantez eşleşiyor mu kontrolü
+        if (karakter ==')' && acilan != '('{
+          return false;
+        }
+        if (karakter =='[' && acilan != ']'{
+          return false;
+        }                                                                       
+            if (karakter =='}' && acilan != '{'{
+          return false;
+        }
+
+      
+    }
+  
+  }
+
+//stack tamamn poşsa tüm parantezler eşleşmiştir;
+          return top ==-1;//eğerki top başa döndüyse hepsi eşleşmiştir ve true döndürür
+                }
+                }
+
+
+
+  
+}
