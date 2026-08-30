@@ -1,15 +1,13 @@
 class Solution {
     public String longestCommonPrefix(String[] strs) {
-        ArrayList<String> output = new ArrayList<>();
-        HashMap<String,Integer> map=new HashMap<>();
-        for (int i = 0; i < strs[0].length(); i++) {
+        for (int i = 0; i < strs[0].length(); i++) { //dizideki ilk kelimenin uzunluğunu içeren bir for döngüsü yaptık
 
-    char karakter = strs[0].charAt(i);
+    char karakter = strs[0].charAt(i);// burada ilk kelimenin karakterlerini alıyoruz sırasıyla
 
-    for (int j = 1; j < strs.length; j++) {
+    for (int j = 1; j < strs.length; j++) { //burada ise ilk kelimeyi pas geçip ikinci kelimeden başlıyoruz çünkü ilk kelimenin karakterleri ile diğerlerini karşılaştırıcaz aynı mı diye çünkü tüm kelimelerde ortak olanı arıyoruz
 
-        if (i >= strs[j].length() || strs[j].charAt(i) != karakter) {
-            return strs[0].substring(0, i);
+        if (i >= strs[j].length() || strs[j].charAt(i) != karakter) {//burada diyorki eğer i diğer kelimelerin uzunluğunu geçtiyse veya ilk kelime ile diğer kelimelerin karakterleri eşleşmiyorsa
+            return strs[0].substring(0, i); //ilk kelimenin i.indekse kadar olan kısmını döndür(i dahil değil)
         }
     }
 }
