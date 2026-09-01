@@ -1,0 +1,18 @@
+class Solution {
+    public int reverse(int x) {
+        String s=String.valueOf(x); //önce integerı sayıya çevirdik
+        int sayi;
+        if(x<0){
+            String y=s.substring(1); //eğer negatifse - işaretini almadan tekrar yazdık
+            String reversed=new StringBuilder(y).reverse().toString(); //ters çevirdik
+            sayi=Integer.parseInt(reversed);//sonra tekrar integera çevirdik
+            sayi*=-1; //ve sayı negatif olduğu için -1 ile çarpıp sonucu öyle döndürdük
+           
+    }
+     else{
+            String reversed=new StringBuilder(s).reverse().toString();//pozitifse direkt ters çevirip 
+            sayi=Integer.parseInt(reversed);//intera çevirdik
+     }
+        return sayi;
+       } 
+    }
