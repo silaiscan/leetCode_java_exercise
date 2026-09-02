@@ -1,0 +1,27 @@
+public static int myAtoi(String s) {
+    int i = 0;
+    int sign = 1;
+    int result = 0;
+
+    // Baştaki boşlukları geç
+    while (i < s.length() && s.charAt(i) == ' ') {
+        i++;
+    }
+
+    // İşaret kontrolü
+    if (i < s.length() && (s.charAt(i) == '+' || s.charAt(i) == '-')) { //burada boşluklardan sonra gelen i - ya da + mı diye bakıyor rakamlardan sonra gelen herhangi bir - yada + beni ilgilendirmiyor
+        if (s.charAt(i) == '-') {
+            sign = -1;
+        }
+        i++;//kontrolünü yapıp i yi bir arttırıyor
+    }
+
+    // Rakamları oku
+    while (i < s.length() && Character.isDigit(s.charAt(i))) { //burada i stringin uzunluğundan küçük ve stringin i. charı sayı olduğu sürece devam ediyoruz
+        int digit = s.charAt(i) - '0'; //stringin i. indekste charı var ama ben integera geçmek istediğim için -'0' yöntemini kullanarak o anki rakamı integer yapıyorum
+        result = result * 10 + digit; //başta result 0,mesela string 123 olsun önce 1 gelir 0*10+1=1/sonra 2 1*10+2=12/sonra 3 12*10+3=123 ile sonuca ulaşmış oluruz
+        i++;//her rakam geldiğinde i yi arttırdık zaten harf yada karakter gelirse döngüdeji koşul yüzünden direkt kendisi çıkıyor
+    }
+
+    return result * sign;//sonucu başlangıçtaki işaret değişkeni ile çarpıp pozitif mi negatif mi olduğunu yazdık
+}
