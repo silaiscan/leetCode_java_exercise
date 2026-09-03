@@ -1,0 +1,10 @@
+class Solution { //bu soruda amacımız stringin içindeki son kelimenin uzunluğunu bulmak
+    public int lengthOfLastWord(String s) {
+        s=s.trim(); //önce başta ve sondaki boşlukları yok ettik
+       String reversed1=new StringBuilder(s).reverse().toString();//sonra elimizdeki stringi ters çevidik
+       String last=s.substring(0,reversed1.indexOf(" "));//ardından ilk indexten ilk boşluğa kadar olan kısmı aldık
+       String reversed2=new StringBuilder(last).reverse().toString(); //kelime okunabilsin diye eski haline çevirdik
+
+    return reversed2.length();//ve uzunluğunu döndürdük
+    }
+}
