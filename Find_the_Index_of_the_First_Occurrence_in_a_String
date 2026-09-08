@@ -1,0 +1,6 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+   int index=haystack.indexOf(needle); //indexOf ile ister tek bir string girip onu bulduğu indeksi vermesini istersin,istersen uzun bir kelime girersin ya da direkt string değişkeninin adınını girip burada olduğu aratabilirsin
+   return index;
+        }
+    }
