@@ -1,0 +1,38 @@
+O(n)çözümü
+class Solution { //bu soruda bize sıralı bir int dizisi ve bir hedef veriliyor eğer hedef dizinin içinde varda bulunduğu indeksi döndürüyoruz yoksa dizinin içinde hangi iki sayının arasına ya da hepsinden büyükse sona gelmesi gerektiğini buluyoruz
+public int searchInsert(int[] nums, int target) {
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] >= target) { //eğer nums[i] targettan büyük veya eşitse nums[i]in yerine geliyor                
+            return i;
+            }
+        }
+
+        return nums.length;//eğer target num[i]en büyükse dizinin uzunluğu yani i+1 dönmüş oluyor
+    }
+}
+O(log n) çözümü
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+
+        int left = 0; //ilk başta left ilk indeksi
+        int right = nums.length - 1; //rigt ise son indeksi sutuyor
+
+        while (left <= right) {//right leftten küçük veya eşit olduğu sürece devam et
+
+            int mid = left + (right - left) / 2; //left ve right yani iki indeksi alıp toplayıp ikiye bölüyoruz ve ortayı buluyoruz eğer tek sayı 2 ye bölündüyse çıkan sayının tam kısmı alınıyor 3/2 =1.5 yani 1 i aldık
+
+            if (nums[mid] == target) { //eğer ortası targeta eşitse onu döndür
+                return mid;
+            }
+            else if (nums[mid] < target) {
+                left = mid + 1; //eğer hedef büyükse ortadaki sayıdan lefti middelın soluna alıyorsun
+            }
+            else {
+                right = mid - 1; //eğer küçükse rightı middelın sağına aldın 
+            }
+        }
+
+        return left; target bulunamadıysa eklenmesi gereken index left çünkü eğer dizide olmayan bir sayıyı arıyorsak arama işlemi sonucu left rightten bir fazla oluyor ve döngü bittiği için aradığımız sayının lefte yerlşemesi gerekiyor
+    }
+}
