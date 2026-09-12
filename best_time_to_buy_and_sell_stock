@@ -1,0 +1,19 @@
+class Solution { //soru bize bir hissenin her günki fiaytını günleri sıralı içeren dizi şeklinde veriyor ve hangi fiyattan alıp hangisinden satarsan max kar edersin diyor
+    public int maxProfit(int[] prices) {
+        int minPrice = prices[0];//ilk başta dizinin 0.indeksini en düşük fiyat olarak beliledik sonra değişecek
+        int maxProfit = 0; //başta maximum kar 0
+
+        for (int i = 1; i < prices.length; i++) {
+            // Bugün satarsak elde edeceğimiz kâr
+            int profit = prices[i] - minPrice;
+
+            // En büyük kârı sakla
+            maxProfit = Math.max(maxProfit, profit);
+
+            // Daha ucuz bir fiyat bulduysak onu kaydet
+            minPrice = Math.min(minPrice, prices[i]);
+        }
+
+        return maxProfit;
+    }
+}
