@@ -1,0 +1,44 @@
+class Solution {
+    public int climbStairs(int n) {
+        int a=1;
+        int b=2;
+        int sonuc=0;
+        if(n==1){
+            return a;
+        }
+        else if(n==2){
+            return b;
+        }
+        else if(n>=3){
+        for(int i=0;i<(n/2);i++){ //n- olmasının sebbei bir ve ikinci yolun zaten belli olması
+            sonuc=a+b; 
+            a=b; //burada a b oluyor
+            b=sonuc;//b sonuc değerü oluyor
+        }
+        return sonuc;
+        }
+        return 1;
+    }
+}
+
+//Bir merdivenimiz var ve merdiven n basamak.
+Sen aşağıdan başlayıp en üste çıkacaksın.
+
+Ama her seferinde sadece:
+
+1 basamak çıkabilirsin
+2 basamak çıkabilirsin
+
+Soru şunu soruyor:
+
+En üste kaç farklı şekilde çıkabilirsin?
+
+// örnek n = 4 olursa
+
+Olasılıklar:
+
+1 → 1 → 1 → 1
+1 → 1 → 2
+1 → 2 → 1
+2 → 1 → 1
+2 → 2
