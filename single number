@@ -1,0 +1,23 @@
+class Solution {//bize bir dizi veriliyor ve dizide tüm sayılar iki kez yazılmış sadece bir tane sayı bir kez yazılmış bizden onu bulmamızı istiyor
+    public int singleNumber(int[] nums) {
+        int sonuc = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int sayac = 0;
+
+            for (int j = 0; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    sayac++;
+                }
+            }
+
+            if (sayac == 1) { //eğer sayaç 2olmadıysa o sayı tektir onu döndürürüz
+            
+                sonuc = nums[i];
+                break;
+            }
+        }
+
+        return sonuc;
+    }
+}
